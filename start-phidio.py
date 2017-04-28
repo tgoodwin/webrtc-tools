@@ -15,7 +15,7 @@ def loadPage(driver, room):
         # EC.presence_of_element_located((By.CSS_SELECTOR, "#roulette")))
 
 
-def joinConversation(driver, joinCall):
+# def joinConversation(driver, joinCall):
 
     # wait till access is granted
     # WebDriverWait(driver, 15).until(
