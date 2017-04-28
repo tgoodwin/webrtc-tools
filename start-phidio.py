@@ -50,7 +50,7 @@ if __name__ == "__main__":
         arguments = sys.argv
         if len(arguments) < 2:
             loadPage(driver, 'testroom')
-        else
+        else:
             loadPage(driver, sys.argv[1])
 
         if '-log' in arguments:
