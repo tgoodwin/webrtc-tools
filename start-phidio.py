@@ -14,12 +14,7 @@ def loadPage(driver, room):
     # WebDriverWait(driver, 15).until(
         # EC.presence_of_element_located((By.CSS_SELECTOR, "#roulette")))
 
-
 # def joinConversation(driver, joinCall):
-
-    # wait till access is granted
-    # WebDriverWait(driver, 15).until(
-        # EC.presence_of_element_located((By.CSS_SELECTOR, ".chatting")))
 
 def logStats(driver):
     # driver.find_element_by_id("roulette").click()
@@ -39,11 +34,16 @@ def waitForCall(driver):
 
 
 if __name__ == "__main__":
+
+    if len(sys.argv) == 3:
+        video = sys.argv[2]
+    else:
+        video = 'in_to_tree_420_720p50.y4m'
     chrome_options = Options()
     chrome_options.add_argument("--use-fake-device-for-media-stream")
     chrome_options.add_argument("--use-fake-ui-for-media-stream")
     chrome_options.add_argument("--reduce-security-for-testing")
-    chrome_options.add_argument("--use-file-for-fake-video-capture=/home/ubuntu/webrtc-tools/in_to_tree_420_720p50.y4m")
+    chrome_options.add_argument("--use-file-for-fake-video-capture=/home/ubuntu/webrtc-tools/vids" + video)
     driver = webdriver.Chrome(chrome_options=chrome_options)
 
     try:
