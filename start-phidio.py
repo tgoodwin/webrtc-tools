@@ -16,12 +16,10 @@ def loadPage(driver, room):
 
 
 def joinConversation(driver, joinCall):
-    # Click the 'Roulette btn' link
-    driver.find_element_by_id("roulette").click()
 
     # wait till access is granted
-    WebDriverWait(driver, 15).until(
-        EC.presence_of_element_located((By.CSS_SELECTOR, ".chatting")))
+    # WebDriverWait(driver, 15).until(
+        # EC.presence_of_element_located((By.CSS_SELECTOR, ".chatting")))
 
 def logStats(driver):
     # driver.find_element_by_id("roulette").click()
@@ -45,7 +43,7 @@ if __name__ == "__main__":
     chrome_options.add_argument("--use-fake-device-for-media-stream")
     chrome_options.add_argument("--use-fake-ui-for-media-stream")
     chrome_options.add_argument("--reduce-security-for-testing")
-    chrome_options.add_argument("--use-file-for-fake-video-capture=/Users/bartjansen/in_to_tree_420_720p50.y4m")
+    chrome_options.add_argument("--use-file-for-fake-video-capture=/home/ubuntu/webrtc-tools/in_to_tree_420_720p50.y4m")
     driver = webdriver.Chrome(chrome_options=chrome_options)
 
     try:
@@ -54,16 +52,14 @@ if __name__ == "__main__":
             loadPage(driver, 'testroom')
         else
             loadPage(driver, sys.argv[1])
-        # joinConversation(driver, True)
 
-        if '-join' in arguments:
+        if '-log' in arguments:
             logStats(driver)
         else:
             waitForCall(driver)
 
     finally:
         print 'done'
-        # driver.quit()
 
 # -args --use-file-for-fake-video-capture=/Users/bartjansen/in_to_tree_420_720p50.y4m --use-fake-device-for-media-stream --enable-features=WebRTC-H264WithOpenH264FFmpeg
 
