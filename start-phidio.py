@@ -43,7 +43,7 @@ if __name__ == "__main__":
     chrome_options.add_argument("--use-fake-device-for-media-stream")
     chrome_options.add_argument("--use-fake-ui-for-media-stream")
     chrome_options.add_argument("--reduce-security-for-testing")
-    chrome_options.add_argument("--use-file-for-fake-video-capture=/home/ubuntu/webrtc-tools/vids" + video)
+    chrome_options.add_argument("--use-file-for-fake-video-capture=/home/ubuntu/vids/" + video)
     driver = webdriver.Chrome(chrome_options=chrome_options)
 
     try:
